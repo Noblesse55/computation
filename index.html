@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <link rel="stylesheet" href="style.css">
+   
+    <h1 id="Unboxing">  
+        Click to unbox!
+    </h1>
+
+    <title>
+        Unboxing
+    </title>
+
+    <body>
+
+        <!-- Hidden checkbox to toggle video display -->
+        <input type="checkbox" id="playVid" class="toggle-video">
+
+        <!-- Image that the user will click -->
+        <label for="playVid" class="image-container">
+            <img id="boxClosed" src="Box1.png" class="clickable-image">
+        </label>
+
+        <!-- Video that will be displayed when the checkbox is checked -->
+        <div class="video-container">
+            <video id="boxOpen" width="400" autoplay muted>
+                <source src="Unboxing.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <script>
+            // Add click event listener to the image (via label)
+            document.querySelector('.image-container').addEventListener('click', function() {
+                // Prevent immediate action by introducing a delay
+                setTimeout(function() {
+                    // Show the video (checkbox is checked automatically by the label click)
+                    document.getElementById('playVid').checked = true;
+        
+                    // Optionally, you could redirect after showing the video
+                    // For example, redirecting after 5 seconds
+                    setTimeout(function() {
+                        window.location.href = 'page2.html';  // Replace with your next page
+                    }, 7000);  // 5 seconds delay before redirecting
+                }, 2000);  // 2 seconds delay before showing the video
+            });
+        </script>
+        
+
+    </body>
+
+</html>

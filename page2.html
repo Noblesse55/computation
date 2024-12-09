@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+    <h1>Assemble your pieces</h1>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Assembly</title>
+
+        <style>
+            /* Optional styling */
+            .gif-container {
+                display: none; /* Hide GIF initially */
+            }
+    
+            .toggle-video:checked + .image-container + .gif-container {
+                display: block; /* Show GIF when checkbox is checked */
+            }
+    
+            .clickable-image {
+                cursor: pointer;
+            }
+        </style>     
+
+    </head>
+
+    <body>
+        <!-- Hidden checkbox to toggle GIF display -->
+        <input type="checkbox" id="playVid" class="toggle-video">
+    
+        <!-- Image that the user will click -->
+        <label for="playVid" class="image-container">
+            <img id="pieces" src="Pieces.png" class="clickable-image" width="400">
+        </label>
+    
+        <!-- GIF that will be displayed when the checkbox is checked -->
+        <div class="gif-container">
+            <img id="assemble" src="Assemble.gif" alt="Unboxing GIF" width="400">
+        </div>
+    
+        <script>
+            // Add click event listener to the image (via label)
+            document.querySelector('.image-container').addEventListener('click', function() {
+                // Prevent immediate action by introducing a delay
+                setTimeout(function() {
+                    // Show the GIF (checkbox is checked automatically by the label click)
+                    document.getElementById('playVid').checked = true;
+    
+                    // Optionally, you could redirect after showing the GIF
+                    // For example, redirecting after 5 seconds
+                    setTimeout(function() {
+                        window.location.href = 'page3.html';  // Replace with your next page
+                    }, 8700);  // 5 seconds delay before redirecting
+                }, 2000);  // 2 seconds delay before showing the GIF
+            });
+        </script>
+
+    </body>
+</html>
